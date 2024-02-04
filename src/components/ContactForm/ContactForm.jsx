@@ -2,10 +2,10 @@ import css from './ContactForm.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addContact } from '../../redux/contactsSlice';
 import { getContacts } from '../../redux/selectors';
 
 import { nanoid } from '@reduxjs/toolkit';
+import { addContact } from 'services/api';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact(name.value, number.value));
+    dispatch(addContact({ name: name.value, number: number.value }));
 
     form.reset();
   };
