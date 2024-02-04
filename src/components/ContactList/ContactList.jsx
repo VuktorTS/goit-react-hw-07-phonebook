@@ -28,7 +28,7 @@ export const ContactList = () => {
             <li key={item.id} className={css.contactListItem}>
               <p className={css.contactName}>
                 {item.name}:{' '}
-                <span className={css.contactNumber}>{item.number}</span>
+                <span className={css.contactNumber}>{item.phone}</span>
               </p>
               <button
                 type="button"

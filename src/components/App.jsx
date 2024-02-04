@@ -4,11 +4,19 @@ import { Filter } from './Filter/Filter';
 
 import css from './App.module.css';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from '../redux/selectors';
+import { useEffect } from 'react';
+import { fetchAll } from 'services/api';
 
 export const App = () => {
   const contacts = useSelector(getContacts);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAll());
+  }, [dispatch]);
 
   return (
     <div className={css.main}>
