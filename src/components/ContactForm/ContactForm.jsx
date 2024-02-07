@@ -6,6 +6,7 @@ import { getContacts } from '../../redux/selectors';
 
 import { nanoid } from '@reduxjs/toolkit';
 import { addContact } from 'services/api';
+import { Zoom, toast } from 'react-toastify';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,10 @@ export const ContactForm = () => {
     );
 
     if (isInContacts) {
-      alert(`${name.value} is already in contacts`);
+      toast.info(`${name.value} is already in contacts`, {
+        autoClose: 2000,
+        transition: Zoom,
+      });
       return;
     }
 
